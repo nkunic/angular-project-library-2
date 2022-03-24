@@ -1,0 +1,52 @@
+<div class="book">
+  <div class="book__header">
+    <div class="quantity">{{ id }}</div>
+    <div class="title">
+      <span title="{{ author }} - {{ title }}">
+        {{ author }} - "{{ title }}"</span
+      >
+    </div>
+    <div class="detail">
+      <app-button
+        [style]="'gray'"
+        [size]="'medium'"
+        [radius]="'no'"
+        (click)="openEdit()"
+      >
+        Edit
+      </app-button>
+    </div>
+  </div>
+  <ng-container *ngIf="edit === true">
+    <div class="book__content">
+      <div class="book__item">
+        <span class="label">Author:</span>
+        <input
+          type="text"
+          [(ngModel)]="author"
+          value="{{ author }}"
+          placeholder="author"
+        />
+      </div>
+      <div class="book__item">
+        <span class="label">Title: </span>
+        <input
+          type="text"
+          [(ngModel)]="title"
+          value="{{ title }}"
+          placeholder="title"
+        />
+      </div>
+    </div>
+    <div class="book__footer">
+      <app-button
+        [style]="'primary'"
+        [size]="'small'"
+        [radius]="'small'"
+        (click)="saveData()"
+      >
+        Save
+      </app-button>
+    </div>
+  </ng-container>
+</div>
